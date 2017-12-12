@@ -1,0 +1,58 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+
+
+    <div class="box">
+        <div class="box-header with-border"><h3 class="box-title">Liste des Inscrits</h3></div>
+        {% for flashMessage in app.session.flashbag.get('confimerFormation') %}
+            <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Succés!</strong> {{ flashMessage }}
+            </div>
+        {% endfor %}
+
+        <div class="box-body">
+            <table class="table table-bordered table-hover dataTable">
+                <thead>
+                    <tr>
+                        <th class="bg-info">Nom</th>
+                        <th class="bg-info">Prenom</th>
+                        <th class="bg-info">Cin</th>
+                        <th class="bg-info">Mail</th>
+                        <th class="bg-info">Grade</th>
+                        <th class="bg-info">Etat</th>
+                        <th class="bg-info">Id Formation</th>
+                        <th class="bg-info">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td>{{ entity.nom}}</a></td>
+                            <td>{{ entity.prenom }}</td>
+                            <td>{{ entity.cin }}</td>
+                            <td>{{ entity.mail }}</td>
+                            <td>{{ entity.grade }}</td>
+                            <td>{{ entity.etat }}</td>
+                            <td>{{ entity.idformation }}</td>
+                            <td>
+                                {% if entity.etat == "en cours" %}
+                                    <a class="btn btn-success" href="{{ path('confirmer_formation', { 'id': entity.id }) }}">Confirmer</a>
+                                {% else %}
+                                    <a class="btn btn-danger disabled"  href="{{ path('confirmer_formation', { 'id': entity.id }) }}">Confirmer</a>
+
+
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div></div>
+
+    <div class="navigation">{{ knp_pagination_render(entities) }}
+    </div> 
+
+{% endblock %}

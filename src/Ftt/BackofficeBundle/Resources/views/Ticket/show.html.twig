@@ -1,0 +1,39 @@
+
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+{% block content %}
+   <h1> <center>Ticket </center></h1>
+<div class="panel panel-default">
+    
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th class="success">Id</th>
+                <td class="success">{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th class="success">Prix</th>
+                <td class="success">{{ entity.prix }}</td>
+            </tr>
+            <tr>
+                <th class="success">Date</th>
+                <td class="success">{{ entity.date|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th class="success">Nbtickets</th>
+                <td class="success">{{ entity.nbtickets }}</td>
+            </tr>
+            <tr>
+                <th class="success">Nbplacdisp</th>
+                <td class="success">{{ entity.nbplacdisp }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+ 
+    <a href="{{ path('ticket_affich') }}" class="btn btn-primary" role="button">
+            <center>  Retour</center>
+        </a>
+ 
+   
+{% endblock %}

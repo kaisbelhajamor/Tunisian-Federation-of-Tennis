@@ -1,0 +1,98 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+    <div class="col-md-8">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Modifier Joueur</h3>
+                {{ form_start(edit_form)}}
+            </div>
+            <div class="form-horizontal">
+                <div class="box-body">
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Type de match: </label>
+
+                        <div class="col-sm-10">
+                            {{ form_widget(edit_form.typeMatch, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Tournoi:  </label>
+
+                        <div class="col-sm-10">
+                            {{ form_widget(edit_form.tournoi, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Terrain:</label>
+
+                        <div class="col-sm-10">
+                            {{ form_widget(edit_form.Terrain, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Date: </label>
+
+                        <div class="col-sm-10">
+                            {{ form_widget(edit_form.date, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Heure: </label>
+
+                        <div class="col-sm-10">
+                            {{ form_widget(edit_form.heure, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                        </div>
+                    </div>    
+
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Resultat: </label>
+
+                        <div class="col-sm-10">
+                            {{ form_widget(edit_form.resultat, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Joueur 1: </label>
+
+                        <div class="col-sm-10">
+                            {{ form_widget(edit_form.joueur1, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Joueur 2: </label>
+
+                        <div class="col-sm-10">
+                            {{ form_widget(edit_form.joueur2, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                        </div>
+                    </div>  
+
+
+                </div>
+            </div>
+              <div class="box-footer">
+            <div class="form-group">
+                {{ form_widget(edit_form.submit, { 'attr': {'class': 'btn btn-info', 'id': 'inputPassword3'} }) }}
+                {{ form_end(edit_form) }}
+
+               
+         
+            <a href="{{ path('matchs') }}" class="btn btn-info pull-right" >Retour a la liste </a> 
+        </div>
+
+
+    </div>
+
+        </div>
+
+
+    </div>
+{% endblock %}

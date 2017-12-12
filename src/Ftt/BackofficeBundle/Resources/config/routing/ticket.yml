@@ -1,0 +1,32 @@
+ticket_affich:
+    path:     /
+    defaults: { _controller: "FttBackofficeBundle:Ticket:index" }
+
+ticket_show:
+    path:     /{id}/show
+    defaults: { _controller: "FttBackofficeBundle:Ticket:show" }
+
+ticket_new:
+    path:     /new
+    defaults: { _controller: "FttBackofficeBundle:Ticket:new" }
+
+ticket_create:
+    path:     /create
+    defaults: { _controller: "FttBackofficeBundle:Ticket:create" }
+    methods:  POST
+ticket_del:
+    path:     /{id}/del
+    defaults: { _controller: "FttBackofficeBundle:Ticket:deleteTick" } 
+ticket_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FttBackofficeBundle:Ticket:edit" }
+
+ticket_update:
+    path:     /{id}/update
+    defaults: { _controller: "FttBackofficeBundle:Ticket:update" }
+    methods:  [POST, PUT]
+
+ticket_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FttBackofficeBundle:Ticket:delete" }
+    methods:  [POST, DELETE]

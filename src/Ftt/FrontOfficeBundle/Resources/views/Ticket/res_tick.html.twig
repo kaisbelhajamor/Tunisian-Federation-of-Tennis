@@ -1,0 +1,54 @@
+
+{% extends "::base.html.twig" %}
+{% block body %}
+    <section id="single_news" class="container secondary-page">
+        <div class="general general-results">
+            <div class="top-score-title col-md-9">
+                <h3 class="tab-match-title secondary-page club-list">Reservation Ticket</h3>
+
+                <table class="match-tbs desc_news">
+                    <tbody>
+                    <tr>
+                        <td class="match-tbs-title">Match</td>
+                        <td class="match-tbs-title">Prix</td>
+                        <td class="match-tbs-title">Date</td>
+                        <td class="match-tbs-title">Nombre de place disponibles</td>
+                        <td class="match-tbs-title">Réservation Ticket</td>
+                    </tr>
+
+                    {% for entity in entities %}
+                        <tr class="match-sets">
+                            <td class="fpt">{{ entity.matchs }}</td>
+                            <td class="fpt">{{ entity.prix }}</td>
+                            <td class="fpt">{% if entity.date %}{{ entity.date|date('d-m-y') }}{% endif %}</td>
+                            <td class="fpt">
+                                <center>{{ entity.nbplacdisp }}</center>
+                            </td>
+                            <td class="fpt">
+                                <center>
+                                    <a href="{{ path('ReservTick',{'m':entity.matchs,'d':entity.date|date('d-m-Y'),'id':entity.id,'pd':entity.nbplacdisp}) }} "
+                                       class="btn btn-primary active" role="button">Reserver</a></center>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td class="match-more" colspan="7"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div><!--Close Top Match-->
+
+            {% include '@FttGestionActualite/FrontOffice/lastnews.html.twig' %}
+        </div>
+
+    </section>
+
+
+
+
+
+    {{ include('@FttFrontOffice/Front/sponsor.html.twig') }}
+{% endblock %}

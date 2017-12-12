@@ -1,0 +1,26 @@
+<div style="font-size: 10px;text-align: center;">
+    Vous recevez cet email de la part de www.ftt.tn car vous êtes abonné(e) à la newsletter FTT via
+    l'adresse {{ mail }}.
+    Pour être sûr(e) de recevoir tous nos messages, rajoutez fttpidev@gmail.com, à votre carnet d’adresses.
+
+</div>
+<br><br>
+<div style="font-size: 12px;text-align: center; color: #e71104">
+    Ou cas ou vous avez un probléme dans l'affichage merci de consulter ce <a href="localhost/{{ path('ftt_front_newsletter_show_newsletter_content', { 'id': id }) }}">Lien</a>
+
+</div>
+
+    <h3 style="text-align: center;"><img alt="" src="{{ logo }}" style="float:left; height:100px; margin-right:10px; width:100px" /></h3>
+
+<h1 style="text-align: center;"><span style="font-family:courier new,courier,monospace">F&eacute;d&eacute;ration Tunisienne de Tennis</span></h1>
+
+<p style="text-align: center;"><span style="font-family:courier new,courier,monospace">Newsletter {{ current_date|date('Y-m-d') }}</span></p>
+
+<hr />
+<p>&nbsp;</p>
+<br>
+
+
+
+
+{{ body|raw  }}

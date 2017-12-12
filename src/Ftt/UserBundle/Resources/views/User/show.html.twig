@@ -1,0 +1,88 @@
+{% extends 'FttBackofficeBundle::accueil_admin.html.twig' %}
+
+{% block content %}
+
+
+
+
+
+
+
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Detailsde utilisateur</h3>
+        </div>
+
+        <!-- form start -->
+
+
+
+
+
+
+            <div class=" box-profile">
+                {% if entity.path is not empty %}
+                <img class="profile-user-img img-responsive img-circle" src="{{ asset(entity.getWebPath()) }}" alt="User profile picture">
+                {% else %}
+                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('uploads/pictures/user.png') }}" alt="User profile picture">
+
+                {% endif %}
+                <h3 class="profile-username text-center">{{ entity.nom }} {{ entity.prenom }}</h3>
+                <p class="text-muted text-center">{{ entity.email }}</p>
+            </div>
+        <hr>
+
+        <div class="box-body">
+
+            <div class="form-group">
+               <dt> UserName : </dt>{{ entity.username }}
+            </div>
+            <hr>
+
+            <div class="form-group">
+                <dt> Nom : </dt>{{ entity.nom }}
+            </div>
+            <hr>
+            <div class="form-group">
+                <dt> Prenom : </dt>{{ entity.prenom }}
+            </div>
+            <hr>
+            <div class="form-group">
+                <dt> Cin : </dt>{{ entity.cin }}
+            </div>
+            <hr>
+            <div class="form-group">
+                <dt> Telephone : </dt>{{ entity.tel }}
+            </div>
+
+            <hr>
+            <div class="form-group">
+                <dt> Email :</dt>{{ entity.email }}
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <dt> TypeUser : </dt>{{ entity.typeUser }}
+            </div>
+            <hr>
+
+            <div class="form-group">
+                <dt> Status :</dt>
+                {% if  entity.enabled  %}
+                     <span class="label label-success">Activé</span>
+                {% else %}
+                     <span class="label label-danger">Non activé</span>
+                {% endif %}
+            </div>
+            <hr>
+        </div><!-- /.box-body -->
+
+        <div class="box-footer">
+                 <a class="btn btn-primary btn-block" href="{{ path('user') }}">Retourner</a>
+        </div><!-- /.box-footer -->
+    </div>
+
+
+{% endblock %}
+

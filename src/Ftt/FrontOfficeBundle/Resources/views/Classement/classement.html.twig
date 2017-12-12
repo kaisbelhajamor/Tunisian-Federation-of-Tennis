@@ -1,0 +1,66 @@
+
+{% extends "::base.html.twig" %}
+{% block body %}
+    <div class="col-md-12 size-img back-img" style="background:transparent url({{ asset('img/top-background.png') }}) no-repeat top center;">
+        <div class="effect-cover">
+            <h3 class="txt-advert animated">Classement des joueurs</h3>
+                <p class="txt-advert-sub animated">Classement des joueurs de la fédération tunisienne de tennis ..</p>
+        </div>
+    </div>
+
+
+
+
+     {%set i =0 %}
+      {%set i2 =0 %}
+
+   <div class="general general-results">
+           <div id="rrResult" class="top-score-title right-score total-reslts col-md-9">
+               <h3 class="tab-match-title secondary-page club-list">Classsment</h3>
+               
+                <div class="main" >
+                        <div class="tabs animated-slide-2">
+                            <ul class="tab-links">
+                                <li class="" style="width: 50%"><a href="#tab1111">ATP</a></li>
+                                <li class="" style="width: 50%"><a href="#tab2222" >WTA</a></li>
+                                
+                               
+                            </ul>
+                            <div class="tab-content">
+                               
+                                <div id="tab1111" class="tab" style="display: block; ">
+                                <table class="tab-score" style="border-collapse:initial;">
+                                  <tbody><tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
+                                  {% for jr in men  %}
+                                        {%set i =i+1 %}
+                                        <tr><td class="score-position">{{ i }} </td><td><a href="">{{jr.nomjoueur}} {{jr.prenomjoueur}}</a></td><td>TUN</td><td>{{jr.points}}</td></tr>
+                                    {% endfor %}
+                                  
+                                  </tbody></table>
+                                </div>
+                                <div id="tab2222" class="tab" style="display: none;">
+                                <table class="tab-score">
+                                <tbody><tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
+                                 {% for jr in women  %}
+                                        {%set i2 =i2+1 %}
+                                        <tr><td class="score-position">{{ i2 }} </td><td><a href="">{{jr.nomjoueur}} {{jr.prenomjoueur}}</a></td><td>TUN</td><td>{{jr.points}}</td></tr>
+                                    {% endfor %}  
+                                
+                                </tbody>
+                                </table>
+                                </div> 
+                               
+                            </div>
+                            <div class="score-view-all"></div>
+                        </div>
+                    </div>
+           </div><!--Close Top Match-->
+       {% include '@FttGestionActualite/FrontOffice/lastnews.html.twig' %}
+        </div>
+
+
+
+
+    {{ include('@FttFrontOffice/Front/sponsor.html.twig') }}
+    {% endblock %}
+    

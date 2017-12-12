@@ -1,0 +1,48 @@
+
+
+
+{% extends "::base.html.twig" %}
+{% block body %}
+    <section id="single_news" class="container secondary-page">
+        <div class="general general-results">
+            <div class="top-score-title col-md-9">
+                <h3 class="tab-match-title secondary-page club-list">Reservation Ticket</h3>
+
+                <table class="match-tbs desc_news">
+                    <tr>
+                        <th class="match-tbs-title"><center>login</center></th>
+                        <th class="match-tbs-title"><center>date</center></th>
+                        <th class="match-tbs-title"><center>Match</center></th>
+                    </tr>
+                    <tbody>
+                    {% for entity in entities %}
+                        <tr class="match-sets">
+
+                            <td class="fpt"><center>{{ entity.login }}</center></td>
+
+                            <td class="fpt"><center>{% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}</center></td>
+                            <td class="fpt"><center> {{ entity.matchs }}</center></td>
+
+
+
+                        </tr>
+                    {% endfor %}
+                    <tr><td class="match-more" colspan="7"></td></tr>
+                    </tbody>
+                </table>
+
+
+
+            </div><!--Close Top Match-->
+
+            {% include '@FttGestionActualite/FrontOffice/lastnews.html.twig' %}
+        </div>
+
+    </section>
+
+
+
+
+
+    {{ include('@FttFrontOffice/Front/sponsor.html.twig') }}
+{% endblock %}

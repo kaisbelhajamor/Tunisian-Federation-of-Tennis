@@ -1,0 +1,58 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+    <div class="general general-results players">
+        <div class="top-score-title right-score col-md-9">
+            <div class="top-score-title player-vs">
+
+                <div class="tabs standard single-pl">
+
+                    <div class="tab-content single-match">
+                        <div id="tab1" class="tab active">
+
+                            <h3 class="tab-match-title club-list">Liste des Matchs </h3>
+                            <center>
+                                <iframe width="560" height="315" align=""
+                                        src="https://www.youtube.com/embed/3tHdi6s9Tdw"
+                                        frameborder="10" allowfullscreen></iframe>
+                            </center>
+                            {% for entity in entities %}
+                                <div id="tab1111" class="tab active">
+                                    <table class="match-tbs">
+                                        <tbody>
+                                        <tr>
+                                            <td class="match-tbs-title" colspan="7">{{ entity.terrain.nomTerrain }}
+                                                - {{ entity.tournoi }}
+                                                - {% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}
+                                                - {{ entity.heure|date('H:i:s') }}</td>
+                                        </tr>
+
+                                        <tr class="match-sets">
+                                            <td class="fpt">Joueur 1</td>
+                                            <td class="fpt">Joueur 2</td>
+                                            <td class="fpt">Resultat</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fpt">{{ entity.joueur1.nomJoueur }}</td>
+                                            <td class="fpt">{{ entity.joueur2.nomJoueur }}</td>
+                                            <td class="fpt">{{ entity.resultat }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <br><br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include '@FttGestionActualite/FrontOffice/lastnews.html.twig' %}
+    </div>
+
+    {{ include('@FttFrontOffice/Front/sponsor.html.twig') }}
+{% endblock %}
+                  
+                            
+                            

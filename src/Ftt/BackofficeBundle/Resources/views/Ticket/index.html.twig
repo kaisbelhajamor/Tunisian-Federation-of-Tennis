@@ -1,0 +1,39 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+    <h1><center>Liste des Tickets</center></h1>
+<div class="panel panel-default">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="success"><center>Match </center></th>
+                <th class="success"><center>Prix</center></th>
+                <th class="success"><center>Date</center></th>
+                <th class="success"><center>Nombre de tickets</center></th>
+                <th class="success"><center>Nombre de place disponibles</center></th>
+                <th class="success"><center>Supprimer</center></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><center>{{ entity.matchs }}</center></td>
+                <td><center>{{ entity.prix }}</center></td>
+                <td><center>{% if entity.date %}{{ entity.date|date('d-m-y') }}{% endif %}</center></td>
+                <td><center>{{ entity.nbtickets }}</center></td>
+                <td><center>{{ entity.nbplacdisp }}</center></td>
+                <td>
+        
+                <center>      <a href="{{ path('ticket_del', { 'id': entity.id }) }}" class="btn btn-danger" role="button">Supprimer</a>    </center>              
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>  
+    <center>      <a href="{{ path('ticket_new') }} " class="btn btn-success" role="button">
+            Ajouter Ticket</a></center>
+               
+        
+   
+    {% endblock %}

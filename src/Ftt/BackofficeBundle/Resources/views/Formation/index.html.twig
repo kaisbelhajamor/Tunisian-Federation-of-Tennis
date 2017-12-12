@@ -1,0 +1,56 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+
+
+<div class="box">
+    <div class="box-header with-border"><h3 class="box-title">Liste des formations</h3></div>
+      <div class="box-body">
+        <table class="table table-bordered table-hover dataTable">
+        <thead>
+            <tr>
+                
+                <th class="bg-info">Nom</th>
+                <th class="bg-info">Description</th>
+                <th class="bg-info">Lieux</th>
+                <th class="bg-info">Dateouverture</th>
+                <th class="bg-info">Datecloture</th>
+                <th class="bg-info">Cible</th>
+                <th class="bg-info">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.lieux }}</td>
+                <td>{% if entity.dateOuverture %}{{ entity.dateOuverture|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateCloture %}{{ entity.dateCloture|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.cible }}</td>
+                <td>
+                
+                        <a class="btn btn-info" href="{{ path('formation_delete2', { 'id': entity.id }) }}">Supprimer</a>
+                   <p></p>
+                        <a class="btn btn-info" href="{{ path('formation_edit', { 'id': entity.id }) }}">Modifier</a>
+                   
+              
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> 
+        <p></p>
+         <a  href="{{ path('formation_new') }}" class="btn btn-info"> Ajouter formation </a>
+        <div class="navigation">{{ knp_pagination_render(entities) }}  </div> 
+             
+        </div>
+</div>
+        
+
+          
+        
+       
+       
+    {% endblock %}

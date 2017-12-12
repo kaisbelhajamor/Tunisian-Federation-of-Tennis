@@ -1,0 +1,78 @@
+ftt_backoffice_homepage:
+    path:     /
+    defaults: { _controller: FttBackofficeBundle:Admin:index }
+
+ftt_backoffice_messages_list:
+    path:     /messages
+    defaults: { _controller: FttBackofficeBundle:Messages:list }
+ftt_backoffice_messages_delete:
+    path:     /messages/delete/{id}
+    defaults: { _controller: FttBackofficeBundle:Messages:delete }
+
+ftt_backoffice_messages_show:
+    path:     /messages/show/{id}
+    defaults: { _controller: FttBackofficeBundle:Messages:show }
+
+
+
+ftt_backoffice_medecin_list:
+    path:     /medecin
+    defaults: { _controller: FttBackofficeBundle:Medecin:listMedecin }
+
+ftt_backoffice_medecin_add:
+    path:     /medecin/add
+    defaults: { _controller: FttBackofficeBundle:Medecin:addMedecin }
+
+ftt_backoffice_medecin_update:
+    path:     /medecin/update/{id}
+    defaults: { _controller: FttBackofficeBundle:Medecin:updateMedecin }
+
+ftt_backoffice_medecin_delete:
+    path:     /medecin/delete/{id}
+    defaults: { _controller: FttBackofficeBundle:Medecin:deleteMedecin }
+
+ftt_backoffice_medecin_show:
+    path:     /medecin/show/{id}
+    defaults: { _controller: FttBackofficeBundle:Medecin:showMedecin }
+ftt_backoffice_terrain:
+    resource: "@FttBackofficeBundle/Resources/config/routing/terrain.yml"
+    prefix:   /terrain
+
+ftt_backoffice_matchs:
+    resource: "@FttBackofficeBundle/Resources/config/routing/matchs.yml"
+    prefix:   /matchs
+
+ftt_backoffice_formation:
+    resource: "@FttBackofficeBundle/Resources/config/routing/formation.yml"
+    prefix:   /formation
+
+
+ftt_backoffice_club:
+    resource: "@FttBackofficeBundle/Resources/config/routing/club.yml"
+    prefix:   /club
+
+ftt_backoffice_joueur:
+    resource: "@FttBackofficeBundle/Resources/config/routing/joueur.yml"
+    prefix:   /joueur
+
+
+inscription_liste:
+    path:     /liste_insc
+    defaults: { _controller: FttBackofficeBundle:InscritFormationList:index }
+
+confirmer_formation:
+    path:     /confirmer_formation
+    defaults: { _controller: FttBackofficeBundle:InscritFormationList:confirmer }
+
+
+statistique:
+    path:   /stat
+    defaults: { _controller: FttBackofficeBundle:Ticket:statistique }
+
+ftt_backoffice_paris:
+    resource: "@FttBackofficeBundle/Resources/config/routing/paris.yml"
+    prefix:   /paris
+
+ftt_backoffice_ticket:
+    resource: "@FttBackofficeBundle/Resources/config/routing/ticket.yml"
+    prefix:   /ticket

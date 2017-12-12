@@ -1,0 +1,74 @@
+{% extends 'FttBackofficeBundle::accueil_admin.html.twig' %}
+ {% block javascripts %}
+
+     <script src="{{ asset('bundles/fttnewsletter/ckeditor/ckeditor.js') }}"></script>
+
+ {% endblock %}
+{% block breadcrumb %}
+    {{ parent() }}
+
+    <li class="active">Répondre au contact</li>
+{% endblock %}
+
+
+
+
+
+
+
+{% block content %}
+
+
+    <div class="box-group" id="accordion">
+        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <i class="fa fa-envelope"></i>
+                <h3 class="box-title">Message envoyé</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                {{ data.message }}
+
+            </div><!-- /.box-body -->
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="box box-info">
+        <div class="box-header">
+            <h3 class="box-title">Repondre au message <small></small></h3>
+            <!-- tools box -->
+            <div class="pull-right box-tools">
+                <button class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+            </div><!-- /. tools -->
+        </div><!-- /.box-header -->
+
+        {% for flashMessage in app.session.flashbag.get('SuccessContactSendMail') %}
+            <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+
+                <strong>Succés!</strong> {{ flashMessage }}
+            </div>
+        {% endfor %}
+
+        <div class="box-body pad" style="display: block;">
+            {{ form_start(form) }}
+            {{ form_widget(form.description, { 'attr': {'class': 'ckeditor', 'id': ''} }) }}
+            {{ form_widget(form.Envoyer, { 'attr': {'class': 'btn btn-block btn-primary btn-lg', 'id': ''} }) }}
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-6 col-md-offset-2">
+  <br><br>
+          <form  method="POST" class="form-horizontal"  action='{{path('sendMail')}}' >
+                        
+                              
+                        
+                      <div class="form-group">      
+                            
+                           <center>   
+                               
+                               <textarea placeholder=" taper votre message ici" class="form-control" name="sujet" cols="100" rows="8" ></textarea>
+                           <br>
+                         <div class="form-group">
+    
+    <div class="col-sm-12">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Enter email" name="mail">
+    </div>
+  </div>
+                              
+                               
+                           
+                                
+                                <button class="btn btn-theme" type="submit" value="envoyer" >Envoyer</button></center>
+</div></form>
+
+          </div></div>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'FttBackofficeBundle::accueil_admin.html.twig' %}
+{% block breadcrumb %}
+    {{ parent() }}
+
+    <li class="active">Ajouter utilisateur</li>
+{% endblock %}
+{% block content %}
+
+    <div class="box box-info ">
+        <div class="box-header with-border">
+            <h3 class="box-title">Ajouter un  nouveau utilisateur</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        {{ form_start(form,{ 'attr': {'class': 'form-horizontal'} })}}
+            <div class="box-body">
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">UserName*</label>
+
+                    <div class="col-sm-3">
+                        {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Nom*</label>
+
+                    <div class="col-sm-3">
+                        {{ form_widget(form.nom, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Prenom*</label>
+
+                    <div class="col-sm-3">
+                        {{ form_widget(form.prenom, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Cin*</label>
+
+                    <div class="col-sm-3">
+                        {{ form_widget(form.cin, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">N° Telephone</label>
+
+                    <div class="col-sm-3">
+                        {{ form_widget(form.tel, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email*</label>
+
+                    <div class="col-sm-3">
+                        {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Type Utilisateur*</label>
+
+                    <div class="col-sm-3">
+                        {{ form_widget(form.typeUser, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Password*</label>
+                    <div class="col-sm-3">
+                        {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'id': 'inputPassword3'} }) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Verification Password*</label>
+                    <div class="col-sm-3">
+                        {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'id': 'inputPassword3'} }) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Télecharger avatar*</label>
+                    <div class="col-sm-3">
+                        {{ form_widget(form.file, { 'attr': {'class': 'form-control', 'id': 'inputPassword3'} }) }}
+                    </div>
+                </div>
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                {{ form_widget(form.submit, { 'attr': {'class': 'btn btn-info pull-left', 'id': 'inputPassword3'} }) }}
+                <a class="btn btn-info pull-right" href="{{ path('user') }}">
+                    Retourner
+                </a>
+           </div><!-- /.box-footer -->
+        {{ form_end(form) }}
+    </div>
+
+
+{% endblock %}
+

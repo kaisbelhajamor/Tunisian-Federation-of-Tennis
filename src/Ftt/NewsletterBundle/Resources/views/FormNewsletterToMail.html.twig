@@ -1,0 +1,49 @@
+{% extends 'FttBackofficeBundle::accueil_admin.html.twig' %}
+ {% block javascripts %}
+<script src="{{ asset('bundles/fttnewsletter/ckeditor/ckeditor.js') }}"></script>
+ {% endblock %}
+{% block breadcrumb %}
+    {{ parent() }}
+
+    <li class="active">envoyer newsletter</li>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+
+
+
+    <div class="box box-warning">
+        <div class="box-header with-border">
+            <h3 class="box-title">Newsletter</h3>
+        </div><!-- /.box-header -->
+
+            {% for flashMessage in app.session.flashbag.get('SuccessNewsletterSendMail') %}
+                <div class="alert alert-success fade in">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+
+                    <strong>Succés!</strong> {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+        <div class="box-body">
+
+           {{ form_start(form) }}
+            {{ form_widget(form.description, { 'attr': {'class': 'ckeditor', 'id': ''} }) }}
+
+        </div><!-- /.box-body -->
+    </div>
+
+    <div class="box-footer">
+        {{ form_widget(form.Envoyer, { 'attr': {'class': 'btn btn-primary', 'id': ''} }) }}
+    </div>
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
+
+

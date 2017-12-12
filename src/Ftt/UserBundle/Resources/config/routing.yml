@@ -1,0 +1,7 @@
+ftt_user_user:
+    resource: "@FttUserBundle/Resources/config/routing/user.yml"
+    prefix:   /
+
+
+
+

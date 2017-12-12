@@ -1,0 +1,59 @@
+
+{% extends "::base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+    {% block fos_user_content %}
+    <section class="drawer">
+        <div class="col-md-12 size-img back-img" style="background:transparent url({{ asset('images/register.jpg') }}) no-repeat top center;">
+            <div class="effect-cover">
+                <h3 class="txt-advert animated">Fédération Tunisienne de Tennis</h3>
+                <p class="txt-advert-sub animated">Inscrivez vous pour faire des paris , acheter des billets ..</p>
+            </div>
+        </div>
+
+        <section id="login" class="container secondary-page">
+            <div class="general general-results players">
+
+                <!-- REGISTER BOX -->
+                <div class="top-score-title right-score col-md-12">
+                    <h3> Avez vous oublié votre mot de passe ? <span> Changez le maintenant</span><span class="point-int"> !</span></h3>
+                    <div class="col-md-12 login-page">
+
+
+
+                        <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="register-form">
+                            <div>
+
+                                    {% if invalid_username is defined %}
+                                    <div class="alert alert-danger">
+                                        <p>Nom utilisateur invalide</p>
+                                    </div>
+                                    {% endif %}
+
+                            </div>
+                            <div>
+                                <label for="username">*Nom Utilisateur ou Email :</label>
+                                <input type="text" id="name" name="username" required="required" />
+                            </div>
+                            <div>
+                                <button type="submit" value="{{ 'resetting.request.submit'|trans }}">Envoyer</button>
+                            </div>
+                        </form>
+
+
+                        <div class="ctn-img">
+                            <img src="{{ asset('images/federer.png') }}" />
+                        </div><!--Close Images-->
+                        <div class="clear"></div>
+                    </div>
+
+                </div><!--Close REgistration-->
+            </div>
+        </section>
+
+    </section>
+
+    {% include "@FttFrontOffice/Front/sponsor.html.twig" %}
+    {% endblock fos_user_content %}
+{% endblock %}

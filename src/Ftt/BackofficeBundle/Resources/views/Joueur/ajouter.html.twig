@@ -1,0 +1,86 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+    <div class="col-md-8">
+        <div class="box">
+            <div class="box-body"> 
+
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Ajouter un Joueur</h3>
+                        {{ form_start(form,{ 'attr': {'class': 'form-horizontal'} })}}
+                    </div>
+                    <div class="form-horizontal">
+                        <div class="box-body">
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Nom: </label>
+
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.nomJoueur, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Prenom: </label>
+
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.prenomJoueur, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Date de naissance: </label>
+
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.dateNaissance, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Sexe: </label>
+
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.sexe, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">carriere</label>
+
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.carriere, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Club: </label>
+
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.club, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">Points: </label>
+
+                                <div class="col-sm-10">
+                                    {{ form_widget(form.points, { 'attr': {'class': 'form-control', 'id': 'inputEmail3'} }) }}
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        {{ form_widget(form.Valider, { 'attr': {'class': 'btn btn-info pull-right', 'id': 'inputPassword3'} }) }}
+                        <a href="{{path('afficher_joueur')}}" class="btn btn-info">Retour a la liste </a>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+
+            </div>        
+        {% endblock %}

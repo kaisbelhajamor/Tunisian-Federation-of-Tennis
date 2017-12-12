@@ -1,0 +1,64 @@
+frontoffice_homepage:
+    path:     /
+    defaults: { _controller: FttFrontOfficeBundle:Site:index }
+
+contact_homepage:
+    path:     /contact
+    defaults: { _controller: FttFrontOfficeBundle:Site:Contact }
+
+
+
+liste_formation:
+    path:     /listeformation
+    defaults: { _controller: FttFrontOfficeBundle:Formation:liste }
+
+
+inscrire_formation:
+    path:     /inscrire
+    defaults: { _controller: FttFrontOfficeBundle:InscrirFormation:inscrir }
+
+club_list:
+    path:     /formation/liste
+    defaults: { _controller: "FttFrontOfficeBundle:Club:liste" }
+
+classement_list:
+    path:     /joueur/classement
+    defaults: { _controller: "FttFrontOfficeBundle:Classement:classement" }
+
+
+match_intern:
+    path:     /affintern
+    defaults: { _controller: FttFrontOfficeBundle:Matchs:matchintern }
+reser_tick:
+    path:     /reserv
+    defaults: { _controller: FttFrontOfficeBundle:Matchs:reserv }
+findMatchs:
+    path:     findMatch/{id}
+    defaults: { _controller: FttFrontOfficeBundle:Matchs:findMatchs }
+ReservTick:
+    path:   /ReservTick/{m}/{d}/{id}/{pd}
+    defaults: { _controller: FttFrontOfficeBundle:Reserv:ReservTick }
+match_list:
+    path:     /listematch
+    defaults: { _controller: FttFrontOfficeBundle:Matchs:matchlist }
+terrain_list:
+    path:     /listeterrain
+    defaults: { _controller: FttFrontOfficeBundle:Matchs:terrainlist }
+decrem:
+    path:   /dec/{id}/{pd}
+    defaults: { _controller: FttFrontOfficeBundle:Ticket:decremente }
+aff_res:
+    path:   /aff_res/{log}
+    defaults: { _controller: FttFrontOfficeBundle:Reserv:showr }
+best_player:
+    path:  /bestplayer
+    defaults: { _controller: FttFrontOfficeBundle:Classement:bestplayer }
+add_resutltat_medical:
+    path:     /resultatMedical/add
+    defaults: { _controller: FttFrontOfficeBundle:ResultatMedical:AjouterResultatMedical }
+list_resutltat_medical_ajoute:
+    path:     /resultatMedical/liste
+    defaults: { _controller: FttFrontOfficeBundle:ResultatMedical:ResultatsMedicalsDeChaqueMedecin }
+list_resutltat_medical_pdf:
+    path:     /resultatMedical/liste/pdf
+    defaults: { _controller: FttFrontOfficeBundle:PDF:generate }

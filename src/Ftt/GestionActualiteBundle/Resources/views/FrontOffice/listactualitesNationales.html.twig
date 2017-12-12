@@ -1,0 +1,36 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <section class="drawer">
+        <div class="col-md-12 size-img back-img" style="background:transparent url({{ asset('images/register.jpg') }}) no-repeat top center;">
+            <div class="effect-cover">
+                <h3 class="txt-advert animated">Actualités Nationales</h3>
+                <p class="txt-advert-sub animated">Restez branché avec nous pour plus d'actualités ..</p>
+            </div>
+        </div>
+        {% for actu in actualites %}
+
+
+            <div class="col-md-12 news-page">
+                <img class="img-djoko" src="{{ asset(actu.getWebPath()) }}" alt="">
+
+
+                <div class="col-md-10 data-news-pg">
+                    <p class="news-dd">
+                        <span class="day">{{ actu.date| date('d') }}</span>
+                        <span class="month">{{ actu.date | date('F') }}</span>
+                        <span class="year">{{ actu.date | date('Y') }}</span>
+
+                    </p>
+                    </p>
+                    <h3>{{ actu.titre }}</h3>
+                    <p>{{ actu.description|length > 250 ? actu.description|slice(0, 250) ~ '...' : actu.description  }}.</p>
+                    <div class="col-md-12 news-more"><a href="{{ path('ftt_gestion_actualite_front_show', { 'id': actu.id }) }}" class="ca-more"><i class="fa fa-angle-double-right"></i>Plus...</a></div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+
+    </section>
+    {% include "@FttFrontOffice/Front/sponsor.html.twig" %}
+{% endblock %}

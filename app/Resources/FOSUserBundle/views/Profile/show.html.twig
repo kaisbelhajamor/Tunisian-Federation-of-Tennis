@@ -1,0 +1,39 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends "::base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+    <section class="drawer">
+        <div class="col-md-12 size-img back-img" style="background:transparent url({{ asset('images/register.jpg') }}) no-repeat top center;">
+            <div class="effect-cover">
+                <h3 class="txt-advert animated">Fédération Tunisienne de Tennis</h3>
+                <p class="txt-advert-sub animated">Inscrivez vous pour faire des paris , acheter des billets ..</p>
+            </div>
+        </div>
+
+        <section id="login" class="container secondary-page">
+            <div class="general general-results players">
+
+                <!-- REGISTER BOX -->
+                <div class="top-score-title right-score col-md-12">
+
+                    <div class="col-md-12 login-page">
+
+                        <br><br>
+                        <h3>Mot de passe  pour l'utilisateur: <span class="point-int">{{ user.username }} </span> <br><br> a été changé avec succes <br><br></h3>
+
+
+                        <div class="ctn-img">
+                            <img src="{{ asset('images/federer.png') }}" />
+                        </div><!--Close Images-->
+                        <div class="clear"></div>
+                    </div>
+
+                </div><!--Close REgistration-->
+            </div>
+        </section>
+
+    </section>
+
+{% endblock %}

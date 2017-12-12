@@ -1,0 +1,126 @@
+{% extends 'FttBackofficeBundle::accueil_admin.html.twig' %}
+{% block numNews %} {{ numNews }} {% endblock %}
+{% block breadcrumb %}
+    {{ parent() }}
+
+    <li class="active">Messages envoyés </li>
+{% endblock %}
+
+
+
+{% block content %}
+    {% for flashMessage in app.session.flashbag.get('SuccessDeleteMsg') %}
+        <div class="alert alert-success fade in">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+
+            <strong>Succés!</strong> {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+
+    <div class="box box-success">
+
+        <div class="box-header with-border">
+            <h3 class="box-title">Liste des Messages</h3>
+        </div><!-- /.box-header -->
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+                       aria-describedby="example1_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 165px;">Id
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 210px;">Date ennvoie
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 210px;">Nom
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 210px;">Mail
+                        </th>
+
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 192px;">Type message
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Répondre
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Status
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Supprimer
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% set num = 1 %}
+                    {% for i in data %}
+
+                        {% if num is divisible by(2) %}
+                            <tr role="row" class="odd">
+                        {% else %}
+                            <tr role="row" class="even">
+                        {% endif %}
+                        <td class="sorting_1">{{ num }}</td>
+                        <td> {{ i.date|time_diff }}</td>
+                        <td> {{ i.name }}</td>
+                        <td> {{ i.mail }}</td>
+                        {% if i.readed==1 %}
+                        <td><span class="label label-success">Message Lu</span></td>
+                        {% else %}
+                        <td><span class="label label-warning">Message Non Lu</span></td>
+                        {% endif %}
+
+                       <td><a href="{{ path('ftt_backoffice_messages_show', { 'id': i.id }) }}">Répondre</a></td>
+
+                        {% if i.reply==1 %}
+                            <td><span class="label label-success">Message répondu</span></td>
+                        {% else %}
+                            <td><span class="label label-warning">Message non répondu</span></td>
+                        {% endif %}
+                        <td><a href="{{ path('ftt_backoffice_messages_delete', { 'id': i.id }) }}" onclick="return confirm('Confirmer la suppression?')">Supprimer</a></td>
+
+                        </tr>
+
+                        {% set num = num + 1 %}
+                    {% endfor %}
+
+                    </tbody>
+                    <tfoot>
+                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        style="width: 165px;">Id
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        style="width: 210px;">Date ennvoie
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        style="width: 210px;">Nom
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        style="width: 210px;">Mail
+                    </th>
+
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        style="width: 192px;">Type message
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        style="width: 142px;">Répondre
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        style="width: 142px;">Supprimer
+                    </th>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

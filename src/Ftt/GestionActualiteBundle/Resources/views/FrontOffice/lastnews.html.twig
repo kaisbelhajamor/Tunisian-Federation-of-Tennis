@@ -1,0 +1,37 @@
+<div class="col-md-3 right-column">
+    <div class="top-score-title col-md-12 right-title">
+        <h3>Derniéres Actualités</h3>
+        {% for act in getActus() %}
+            <div class="right-content">
+                <p class="news-title-right">{{ act.titre }}</p>
+                <p class="txt-right">{{ act.description|length > 103 ? act.description|slice(0, 103) ~ '...' : act.description }}</p>
+                <a href="{{ path('ftt_gestion_actualite_front_show', { 'id': act.id }) }}" class="ca-more"><i
+                            class="fa fa-angle-double-right"></i>Plus...</a>
+            </div>
+        {% endfor %}
+
+    </div>
+    <div class="top-score-title col-md-12 right-title">
+        <h3>Photos</h3>
+        <ul class="right-last-photo">
+            {% for img in getActus() %}
+                <li>
+                    <div class="jm-item second">
+                        <div class="jm-item-wrapper">
+                            <div class="jm-item-image">
+                                {% if img.getWebPath() is not empty %}
+                                    <img src="{{ asset(img.getWebPath()) }}" alt="">
+                                {% endif %}
+                                <div class="jm-item-description">
+                                    <div class="jm-item-button">
+                                        <i class="fa fa-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

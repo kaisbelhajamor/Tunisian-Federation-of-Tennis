@@ -1,0 +1,34 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <div class="col-md-6">
+        <div class="box">
+            <div class="box-header with-border"><h3 class="box-title">Liste des clubs</h3></div>
+            <div class="box-body">
+                <table class="table table-bordered table-hover dataTable">
+                    <thead>
+                        <tr>
+
+                            <th class="info">Nom</th>
+                            <th class="info">Adresse</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities %}
+
+                            <tr>
+
+                                <td>{{ entity.nom }}</td>
+                                <td>{{ entity.adresse }}</td>
+
+
+
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="navigation">{{ knp_pagination_render(entities) }} </div>
+            </div> 
+        </div> 
+    </div>  
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+    <center>  <h1>Reserver Ticket</h1></center><br>
+   
+  
+   
+    <table class="table">
+        <thead>
+            <tr>
+                <th><center>Id</center></th>
+                <th><center>Typematch</center></th>
+                <th><center>Tournoi</center></th>
+                <th><center>Joueur1</center></th>
+                <th><center>Joueur2</center></th>               
+                <th><center>Date</center></th>
+                <th><center>Heure</center></th>
+                <th><center>Réservation Ticket</center></th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td><center>{{ entity.typeMatch }}</center></td>
+                <td><center>{{ entity.tournoi }}</center></td>
+                <td><center>{% if entity.joueur1 %}{{ entity.joueur1.getNomJoueur() }}{% endif %}</center></td>
+     
+                <td><center>{% if entity.joueur2 %}{{ entity.joueur2.getNomJoueur() }}{% endif %} </center><br>
+               
+                </td>
+                <td><center>{{ entity.date|date('Y-m-d') }}</center></td>
+                <td><center>{{entity.heure|date('h:i')}}</center></td>                
+             
+                
+                <td>
+                   
+                <center><a href="{{path('ReservTick',{'j1':entity.joueur1.getNomJoueur(),'j2':entity.joueur2.getNomJoueur(),'d':entity.date|date('Y-m-d')}) }} " class="btn btn-primary active" role="button">Reserver</a></center> </td>
+                                   <!-- <a href="{{path('paris_enr',{'id':entity.id,'j1': entity.joueur1.getNomJoueur()})}}"> </a> -->                                                                                                 
+                 
+               
+               </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+          
+{% endblock %}

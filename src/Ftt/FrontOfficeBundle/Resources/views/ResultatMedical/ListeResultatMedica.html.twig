@@ -1,0 +1,46 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <section id="single_news" class="container secondary-page">
+        <div class="general general-results">
+            <div class="top-score-title col-md-9">
+                <h3 class="tab-match-title secondary-page club-list">Résultats Médicals Joueurs</h3>
+
+                <table class="match-tbs desc_news">
+                    <tbody>
+                    <tr>
+                        <td class="match-tbs-title" colspan="7">Mes resultats medicals</td>
+                    </tr>
+                    <tr class="match-sets">
+                        <td class="fpt">Numero Echantillon</td>
+                        <td class="fpt">Date Prelevement</td>
+                        <td class="fpt">Joueur</td>
+                        <td class="fpt">Resultat Test</td>
+                    </tr>
+                    {% for entity in entities %}
+                    <tr class="match-sets">
+                        <td class="fpt">{{ entity.numeroEchantillon }}</td>
+                        <td class="fpt">{{ entity.datePrelevement|date('y/m/d') }}</td>
+                        <td class="fpt">{{ getJoueur(entity.joueur.id).nomJoueur }}</td>
+
+                        <td class="fpt">{{ entity.resultatTest|length > 30 ?  entity.resultatTest|slice(0, 30) ~ '...' :  entity.resultatTest  }}</td>
+                        </tr>
+                     {% endfor %}
+                    </tbody>
+                </table>
+                <a class="btn btn-info pull-right" href="{{ path('list_resutltat_medical_pdf')}}"> Certificat</a>
+
+
+
+            </div><!--Close Top Match-->
+
+            {% include '@FttGestionActualite/FrontOffice/lastnews.html.twig' %}
+        </div>
+
+    </section>
+
+
+
+
+
+    {{ include('@FttFrontOffice/Front/sponsor.html.twig') }}
+{% endblock %}

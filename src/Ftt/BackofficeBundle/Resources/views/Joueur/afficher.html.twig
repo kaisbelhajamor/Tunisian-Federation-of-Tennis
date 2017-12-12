@@ -1,0 +1,54 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+
+
+    <div class="box">
+        <div class="box-header with-border"><h3 class="box-title">Liste des joueurs</h3></div>
+        <div class="box-body">
+            <table class="table table-bordered table-hover dataTable">
+
+                <th class="success">Nom</th>
+                <th class="success">Prenom</th>
+                <th class="success">Date de naissance</th>
+                <th class="success">Sexe</th>
+                <th class="success">Carriere</th>
+                <th class="success">Club</th>
+                <th class="success">Points</th>
+                <th class="danger"><center> Action </center></th>
+               
+                {% for j in joueur %}
+                    <tr>
+                        <td>{{ j.nomJoueur }}</td>
+                        <td>{{ j.prenomJoueur }}</td>
+                        <td>{{ j.dateNaissance|date('d-M-Y') }}</td>
+                        <td>{{ j.sexe}}</td>
+                        <td>{{j.carriere }}</td>
+                        <td>{{j.club.nom }}</td>
+                        <td>{{j.points}}</td>
+                    <style>
+                        .rdd { color: red; 
+                               font-weight:bold; } 
+                        .grn { color: green;
+                               font-weight:bold;} 
+                        </style>   
+
+                        <td > <a href="{{path('modifier_joueur',{'id':j.id})}}" class="btn btn-info">Modifier </a>  
+
+                     <a href="{{path('supprimer_joueur',{'id':j.id})}}" class="btn btn-danger">Supprimer </a>  </td>  
+                    </tr>
+
+                {% endfor %}
+
+            </table> 
+
+            <div class="navigation">{{ knp_pagination_render(joueur) }} </div>
+
+            <a href="{{path('ajout_joueur')}}" class="btn btn-info pull-right">Ajouter un  joueur </a>
+
+
+        </div>
+    </div> 
+
+
+{% endblock %}

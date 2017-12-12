@@ -1,0 +1,44 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+    <center> <h1>liste des Paris</h1></center>
+<div class="panel panel-default">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="success"><center>Id</center></th>
+               
+                <th class="success"><center>Cote1</center></th>
+                <th class="success"><center>Cote2</center></th>
+                <th class="success"><center>Date</center></th>
+                <th class="success"><center>Match</center></th>
+                <th class="success"> <center>Supprimer</center></th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><center>{{ entity.id }}</center></td>              
+                <td><center>{{ entity.cote1 }}</center></td>
+                <td><center>{{ entity.cote2 }}</center></td>  
+                <td><center>{% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}</center></td>
+                <td><center> {{ entity.matchs }}</center></td>
+
+ 
+            
+                <td>
+               <center><a href="{{ path('paris_del', { 'id': entity.id }) }}" class="btn btn-danger" role="button">
+                Supprimer</a></center>
+</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table></div><br>
+
+          <center>  <a href="{{ path('paris_new') }}" class="btn btn-success" role="button">
+                 Ajouter paris
+            </a>
+       </center>
+   
+    {% endblock %}

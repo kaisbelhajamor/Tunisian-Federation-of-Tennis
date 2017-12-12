@@ -1,0 +1,44 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+    <div class="col-md-6">
+        <div class="box">
+            <div class="box-header with-border"><h3 class="box-title">Liste des joueurs</h3></div>
+            <div class="box-body">
+
+
+                <table class="table table-bordered table-hover dataTable">
+
+                    <th class="info">Nom</th>
+                    <th class="info">Prenom</th>
+                    <th class="info">Date de naissance</th>
+                    <th class="info">Sexe</th>
+                    <th class="info">Carriere</th>
+                    <th class="info">Club</th>
+                    <th class="info">Points</th>
+
+
+                    {% for j in joueur %}
+                        <tr>
+                            <td>{{ j.nomJoueur }}</td>
+                            <td>{{ j.prenomJoueur }}</td>
+                            <td>{{ j.dateNaissance|date('y-m-d') }}</td>
+                             <td>{{j.sexe }}</td>
+                            <td>{{j.carriere }}</td>
+                            <td>{{j.club.nom }}</td>
+                            <td>{{j.points }}</td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </table> 
+                <div class="navigation">{{ knp_pagination_render(joueur) }} </div>
+
+
+
+            </div> 
+        </div> 
+
+
+    {% endblock %}

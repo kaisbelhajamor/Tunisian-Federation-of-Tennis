@@ -1,0 +1,37 @@
+ftt_gestion_actualite_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FttGestionActualiteBundle:Default:index }
+
+ftt_gestion_actualite_admin_list:
+    path:     admin/actualite/
+    defaults: { _controller: FttGestionActualiteBundle:Actualite:listActualite }
+
+ftt_gestion_actualite_admin_delete:
+    path:     admin/actualite/delete/{id}
+    defaults: { _controller: FttGestionActualiteBundle:Actualite:deleteActualite }
+
+ftt_gestion_actualite_admin_update:
+    path:     admin/actualite/update/{id}
+    defaults: { _controller: FttGestionActualiteBundle:Actualite:updateActualite }
+
+ftt_gestion_actualite_admin_ajouter:
+    path:     admin/actualite/add
+    defaults: { _controller: FttGestionActualiteBundle:Actualite:addActualite }
+
+
+ftt_gestion_actualite_admin_show:
+    path:     admin/actualite/show/{id}
+    defaults: { _controller: FttGestionActualiteBundle:Actualite:showAdminActualite }
+
+
+ftt_gestion_actualite_national_front_list:
+    path:     actualite/national
+    defaults: { _controller: FttGestionActualiteBundle:Actualite:listFrontActualiteNat }
+
+ftt_gestion_actualite_international_front_list:
+    path:     actualite/international
+    defaults: { _controller: FttGestionActualiteBundle:Actualite:listFrontActualiteInternat }
+
+ftt_gestion_actualite_front_show:
+    path:     actualite/show/{id}
+    defaults: { _controller: FttGestionActualiteBundle:Actualite:showFrontActualite }

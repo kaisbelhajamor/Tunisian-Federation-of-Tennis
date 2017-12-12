@@ -1,0 +1,61 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+    <div class="col-md-12 size-img back-img">
+        <div class="effect-cover">
+            <h3 class="txt-advert animated fadeInUp">Inscription a la Formation</h3>
+            <p class="txt-advert-sub"></p>
+        </div>
+    </div>
+
+
+    <div class="content-link col-md-12">
+        <div id="contact_form" class="top-score-title col-md-9 align-center">
+            <div class="box-header with-border"><h3 class="box-title">Inscription au formation</h3></div>
+            {{ form_start(form)}}
+           
+
+                <div class="name">
+                    <label for="name">* Nom:</label><div class="clear"></div>
+                    {{ form_widget(form.nom, { 'attr': {'class': '', 'id': 'inputEmail3'} }) }}
+                </div>
+                <div class="name">
+                    <label for="name">* Prenom:</label><div class="clear"></div>
+                    {{ form_widget(form.prenom, { 'attr': {'class': '', 'id': 'inputEmail3'} }) }}
+                </div>
+
+                <div class="name">
+                    <label for="name">* Cin:</label><div class="clear"></div>
+                    {{ form_widget(form.cin, { 'attr': {'class': 'resultatMedical', 'id': 'inputEmail3'} }) }}
+                </div>
+                <div class="name">
+                    <label for="name">* Email:</label><div class="clear"></div>
+                    {{ form_widget(form.mail, { 'attr': {'class': 'resultatMedical', 'id': 'inputEmail3'} }) }}
+                </div>
+                <div class="name">
+                    <label for="name">* Grade:</label><div class="clear"></div>
+                    {{ form_widget(form.grade, { 'attr': {'class': '', 'id': 'inputEmail3'} }) }}
+                </div>
+
+                <div id="loader">
+                    {{ form_widget(form.Valider, { 'attr': {'class': '', 'id': 'inputPassword3'} }) }}
+                </div>
+                <p class="success">Your message has been sent successfully.</p>
+
+          
+                {{form_rest(form)}}
+            {{ form_end(form) }}
+        </div>
+        <div id="info-company" class="top-score-title col-md-3 align-center">
+            <h3>Info+</h3>
+            <div class="col-md-12">
+                <p><i class="fa fa-phone"></i>(+216)72 009 803 </p>
+                <p><i class="fa fa-envelope-o"></i>ftt@gmail.com </p>
+                <p><i class="fa fa-globe"></i>Place 10 décembre cité olympique,Ariana, Tunisie</p>
+
+            </div>            
+        </div>
+
+    </div>     
+    {{ include('@FttFrontOffice/Front/sponsor.html.twig') }}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+
+
+    <div class="box">
+        <div class="box-header with-border"><h3 class="box-title">Liste des clubs</h3></div>
+        <div class="box-body">
+            <table class="table table-bordered table-hover dataTable">
+                <thead>
+                    <tr>
+                        <th class="bg-success">Id</th>
+                        <th class="bg-success">Nom</th>
+                        <th class="bg-success">Adresse</th>
+                        <th class="bg-success">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+
+                        <tr>
+                            <td><a href="{{ path('club_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.nom }}</td>
+                            <td>{{ entity.adresse }}</td>
+                            <td>
+
+                                <a class="btn btn-danger" href="{{ path('club_delete2', { 'id': entity.id }) }}">Supprimer</a>
+
+                                <a class="btn btn-info" href="{{ path('club_edit', { 'id': entity.id }) }}">Modifier</a>
+
+
+                            </td>
+
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                <p>        </p>
+                   
+                 <a href="{{ path('club_new') }}" class="btn btn-info" role="boutton" > Ajouter un Club </a>
+       <div class="navigation">{{ knp_pagination_render(entities) }}</div> 
+        </div></div>
+
+ 
+    
+
+   
+
+  
+
+
+{% endblock %}

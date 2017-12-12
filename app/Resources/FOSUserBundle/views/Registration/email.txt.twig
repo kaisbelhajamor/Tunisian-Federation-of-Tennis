@@ -1,0 +1,32 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block subject %}
+Création de compte :
+
+
+
+{% endblock %}
+{% block body_text %}
+{% autoescape false %}
+
+{% endautoescape %}
+{% endblock %}
+{% block body_html %}
+{% autoescape false %}
+
+Fédération Tunisienne de Tennis
+
+
+Bonjour {{ user.username }} !
+
+
+Vous pouvez confirmer votre compte en cliquant sur ce lien {{ confirmationUrl }}
+
+Merci de changer votre mot de passe lorsque vous confirmez votre compte.
+
+
+Cordialement
+Equipe-FTT
+{% endautoescape %}
+
+
+{% endblock %}

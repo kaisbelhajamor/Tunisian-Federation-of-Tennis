@@ -1,0 +1,76 @@
+
+{% extends "::base.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+
+    {% block fos_user_content %}
+        <section id="login" class="container secondary-page">
+            <div class="general general-results players">
+                <div class="top-score-title right-score col-md-6">
+                    <h3>Bienvenue<span class="point-int"> !</span></h3>
+                    <div class="col-md-12 login-page login-w-page">
+                        <p class="logiin-w-title">
+                            La Fédération tunisienne de tennis (FTT)
+                            organise le tennis en Tunisie et met en place un système de classement et de compétition national.
+                            La fédération offre plusieurs services à ses fans.
+
+                        </p>
+                        <p>
+
+                            Connectez pour accéder au site FTT. Si vous avez des difficultés de connexion,
+                            Contacter L'administrateur système.
+                            SI VOUS devez avoir votre Password Reset,
+                            S'IL VOUS PLAÎT FOURNIR votre email dans le champ ci-dessous. UN NOUVEAU mot de passe sera envoyé.
+                        </p>
+                        <h3> Si vous n'avez pas de compte ,veuillez S'inscrire
+                                    <span class="point-int">
+                                        <a style="color: #f59123" href="{{ path('fos_user_registration_register') }}">
+                                            ici!</a>
+                                    </span>
+                        </h3>
+                    </div>
+                </div><!--Close welcome-->
+                <!-- LOGIN BOX -->
+                <div class="top-score-title right-score col-md-6">
+                    <h3>Connectez vous<span> Maintenant</span><span class="point-int"> !</span></h3>
+                    <div class="col-md-12 login-page">
+                        {% if error %}
+                            <div>
+                                <span type="span" class="label label-danger">  {{ error.messageKey|trans(error.messageData, 'security') }}</span>
+                            </div>
+                        {% endif %}
+                        <form  class="login-form" action="{{ path("fos_user_security_check") }}" method="post">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            <div class="name">
+                                <label for="name_login">Email:</label><div class="clear"></div>
+                                <input id="name_login" name="_username"  type="text"   value="{{ last_username }}" required="required" />
+                            </div>
+                            <div class="pwd">
+                                <label for="password_login">Password:</label><div class="clear"></div>
+
+                                <input  type="password" id="password_login" name="_password" required="required" />
+                            </div>
+                            <div id="login-submit">
+                                <button  type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">Se connecter</button>
+                            </div>
+                        </form>
+                        <h4> Mot de passe oublié? Cliquez
+                                    <span class="point-int">
+                                        <a style="color: #f59123" href="{{ path('fos_user_resetting_request') }}">
+                                            ici!</a>
+                                    </span>
+                        </h4>
+
+                    </div>
+
+                </div><!--Close Login-->
+
+            </div>
+        </section>
+
+
+    {% endblock fos_user_content %}
+
+{% endblock %}
+

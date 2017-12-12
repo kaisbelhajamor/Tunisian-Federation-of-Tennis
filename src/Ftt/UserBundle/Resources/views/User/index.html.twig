@@ -1,0 +1,136 @@
+{% extends 'FttBackofficeBundle::accueil_admin.html.twig' %}
+
+
+{% block breadcrumb %}
+    {{ parent() }}
+
+    <li class="active">Liste des utilisateurs</li>
+{% endblock %}
+
+{% block content %}
+    <div class="box box-success">
+
+        <div class="box-header">
+            <h3 class="box-title">Liste des utilisateurs</h3>
+            <center>
+                <a class="fa fa-user btn-lg btn-info" href="{{ path('user_new') }}">
+                    Ajouter utilisateur
+                </a>
+            </center>
+
+
+
+        <div class="box-tools">
+            {{ form_start(form_search, { 'attr': {'class': 'sidebar-form', 'id': ''} }) }}
+
+            <div class="input-group" style="width: 150px;">
+                   {{ form_widget(form_search.cin, { 'attr': {'class': 'form-control', 'id': ''} }) }}
+              <span class="input-group-btn">
+                 {{ form_widget(form_search.submit, { 'attr': {'class': 'hidden', 'id': ''} }) }}
+
+                  <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+                </div>
+            {{ form_rest(form_search) }}
+            {{ form_end(form_search) }}
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+                       aria-describedby="example1_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 165px;">Id
+                        </th>
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 210px;">Username
+                        </th>
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 192px;">Nom
+                        </th>
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 192px;">Prenom
+                        </th>
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Cin
+                        </th>
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Tel
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Email
+                        </th>
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Type
+                        </th>
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Status
+                        </th>
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Activer/Bloquer
+                        </th>
+                        <th class="info" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            style="width: 142px;">Action
+                        </th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% set num = 1 %}
+                    {% for i in entities %}
+
+                        {% if num is divisible by(2) %}
+                            <tr role="row" class="odd">
+                        {% else %}
+                            <tr role="row" class="even">
+                        {% endif %}
+                        <td class="info_1">{{ num }}</td>
+                        <td> {{ i.username }}</td>
+                        <td>{{ i.nom }}</td>
+                        <td>{{ i.prenom }}</td>
+                        <td>{{ i.cin }}</td>
+                        <td>{{ i.tel }}</td>
+                        <td>{{ i.email }}</td>
+                        <td>{{ i.typeUser }}</td>
+                        {% if  i.enabled  %}
+                            <td ><span class="label label-success">Activé</span></td>
+                        {% else %}
+                            <td ><span class="label label-danger">Non activé</span></td>
+                        {% endif %}
+
+
+                        <td>
+                            <div class="btn-group-vertical">
+                                <a class="btn btn-success"  href="{{ path('user_activate', { 'id': i.id }) }}">Activer</a>
+                                <a class="btn btn-warning"  href="{{ path('user_block', { 'id': i.id }) }}">Bloquer</a>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="{{ path('user_show', { 'id': i.id }) }}"><i class="fa fa-eye">Voir</i></a>
+                            <a href="{{ path('user_edit', { 'id': i.id }) }}"><i class="fa fa-edit">Modifier</i></a>
+                            <a href="{{ path('user_delete', { 'id': i.id }) }}"><i class="fa fa fa-trash ">Supprimer</i></a>
+                        </td>
+
+                        {% set num = num + 1 %}
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+
+
+                <div class="box-footer">
+                    <center>
+                        <a class="fa fa-user btn btn-info" href="{{ path('user_new') }}">
+                            Ajouter utilisateur
+                        </a>
+                    </center>
+              </div><!-- /.box-footer -->
+            </div>
+        </div>
+    </div>
+    {% endblock %}

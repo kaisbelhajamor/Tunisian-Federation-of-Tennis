@@ -1,0 +1,32 @@
+formation:
+    path:     /
+    defaults: { _controller: "FttBackofficeBundle:Formation:index" }
+
+formation_new:
+    path:     /new
+    defaults: { _controller: "FttBackofficeBundle:Formation:new" }
+
+formation_create:
+    path:     /create
+    defaults: { _controller: "FttBackofficeBundle:Formation:create" }
+    methods:  POST
+
+formation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FttBackofficeBundle:Formation:edit" }
+
+formation_update:
+    path:     /{id}/update
+    defaults: { _controller: "FttBackofficeBundle:Formation:update" }
+    methods:  [POST, PUT]
+
+formation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FttBackofficeBundle:Formation:delete" }
+    methods:  [POST, DELETE]
+
+formation_delete2:
+    path:     /delete
+    defaults: { _controller: "FttBackofficeBundle:Formation:delete2" }
+ 
+    

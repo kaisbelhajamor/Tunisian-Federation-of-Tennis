@@ -1,0 +1,119 @@
+
+
+<!--SECTION MENU -->
+<section class="container box-logo">
+    <header>
+        <div class="content-logo col-md-12">
+            <div class="col-md-1">
+
+                <img src="{{ asset('img/FTT.jpg') }}" alt="" />
+            </div>
+
+            <div class="bt-menu"><a href="#" class="menu"><span>&equiv;</span> Menu</a></div>
+
+            <div class="box-menu">
+
+                <nav id="cbp-hrmenu" class="cbp-hrmenu">
+                    <ul id="menu">
+                        <li><a class="lnk-menu active" href="{{ path('frontoffice_homepage') }}">Accueil</a></li>
+                        <li><a class="lnk-menu" href="{{ path('contact_homepage') }}">Contact</a></li>
+                        <li>
+                            <a class="lnk-menu" href="#">Joueurs</a>
+                            <div class="cbp-hrsub sub-little">
+                                <div class="cbp-hrsub-inner">
+                                    <div class="content-sub-menu">
+                                        <ul class="menu-pages">
+                                            <li><a href="{{path('classement_list')}}"><span>Classement</span></a></li>
+                                            <li><a href="{{path('best_player')}}"><span>Meilleurs Joueurs</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a class="lnk-menu" href="{{ path('club_list') }}">Clubs</a></li>
+
+                        <li>
+                            <a class="lnk-menu" href="#">Matches et Paris</a>
+                            <div class="cbp-hrsub sub-little">
+                                <div class="cbp-hrsub-inner">
+                                    <div class="content-sub-menu">
+                                        <ul class="menu-pages">
+
+                                            <li><a class="" href="{{ path('match_list') }}"> Liste des Matches</a></li>
+                                            <li><a href="{{path('match_intern')}}"><span>Parier sur un Match</span></a></li>
+                                            <li><a class="" href="{{ path('terrain_list') }}">Terrains</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {% if  entityUser(app.user.id).typeUser == "ROLE_JOUEUR" %}
+                                <li><a class="lnk-menu active" href="{{ path('liste_formation') }}">FORMATION</a></li>
+
+
+                            {% endif %}
+                        {% endif %}
+
+
+
+
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {% if  entityUser(app.user.id).typeUser == "ROLE_MEMBRE" %}
+                                <li>
+                                    <a class="lnk-menu" href="#">Tickets</a>
+                                    <div class="cbp-hrsub sub-little">
+                                        <div class="cbp-hrsub-inner">
+                                            <div class="content-sub-menu">
+                                                <ul class="menu-pages">
+                                                    <li><a href="{{path('reser_tick')}}"><span>Reservation Ticket</span></a></li>
+                                                    <li><a href="{{path('aff_res',{'log':entityUser(app.user.id).username} )}}"><span>Afficher les Réservations</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                            {% endif %}
+                        {% endif %}
+                        {% block mainmenu %}
+                            <li>
+                                <a class="lnk-menu" href="#">Actualités</a>
+                                <div class="cbp-hrsub sub-little">
+                                    <div class="cbp-hrsub-inner">
+                                        <div class="content-sub-menu">
+                                            <ul class="menu-pages">
+                                                <li><a href="{{ path('ftt_gestion_actualite_national_front_list') }}"><span> Nationales</span></a></li>
+                                                <li><a href="{{ path('ftt_gestion_actualite_international_front_list') }}"><span>Internationales</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                {% if  entityUser(app.user.id).typeUser == "ROLE_MEDECIN" %}
+                                    <li>
+                                        <a class="lnk-menu" href="#">Resutat Medical</a>
+                                        <div class="cbp-hrsub sub-little">
+                                            <div class="cbp-hrsub-inner">
+                                                <div class="content-sub-menu">
+                                                    <ul class="menu-pages">
+                                                        <li><a href="{{ path('add_resutltat_medical') }}"><span> Ajouter Resutats</span></a></li>
+                                                        <li><a href="{{ path('list_resutltat_medical_ajoute') }}"><span>Voir Resutats </span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endif %}
+
+
+                        {% endblock %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+</section>

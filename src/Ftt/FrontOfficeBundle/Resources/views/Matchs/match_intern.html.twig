@@ -1,0 +1,65 @@
+
+
+
+
+            {% extends "::base.html.twig" %}
+            {% block body %}
+                <section id="single_news" class="container secondary-page">
+                    <div class="general general-results">
+                        <div class="top-score-title col-md-9">
+                            <h3 class="tab-match-title secondary-page club-list">Parier sur un match</h3>
+
+                            <table class="tab-content">
+                                <div id="tab1111" class="tab active">
+
+                                    <table class="match-tbs">
+
+                                        <tr><td class="match-tbs-title" >Typematch</td>
+                                            <td class="match-tbs-title" >Tournoi</td>
+                                            <td class="match-tbs-title" >Date</td>
+                                            <td class="match-tbs-title" >Joueur1</td>
+                                            <td class="match-tbs-title" >Joueur2</td>
+                                            <td class="match-tbs-title" >Heure</td>
+                                            <td class="match-tbs-title" >Parier</td>
+                                        </tr>
+
+
+                                        {% for entity in entities %}
+                                            <tr class="match-tbs desc_news">
+
+                                                <td class="fpt"><center>{{ entity.typeMatch }}</center></td>
+                                                <td class="fpt"><center>{{ entity.tournoi }}</center></td>
+                                                <td class="fpt"><center>{{ entity.date|date('Y-m-d') }}</center></td>
+                                                <td class="fpt"><center>{% if entity.joueur1 %}{{ entity.joueur1.getNomJoueur() }}{% endif %}</center></td>
+
+                                                <td class="fpt"><center>{% if entity.joueur2 %}{{ entity.joueur2.getNomJoueur() }}{% endif %} </center><br>
+
+                                                </td>
+                                                s
+                                                <td class="fpt"><center>{{entity.heure|date('h:i')}}</center></td>
+
+
+                                                <td class="fpt"> <center><button type="button" ><a href="{{path('findMatchs',{'id':entity.id})}}"> Parier</a></button></center> </td>
+                                            </tr>
+                                            <tr><td class="match-more" colspan="7"></td></tr>
+                                        {% endfor %}
+
+                                    </table>
+
+
+                        </div><!--Close Top Match-->
+
+                        {% include '@FttGestionActualite/FrontOffice/lastnews.html.twig' %}
+                    </div>
+
+                </section>
+
+
+
+
+
+                {{ include('@FttFrontOffice/Front/sponsor.html.twig') }}
+            {% endblock %}
+
+
+

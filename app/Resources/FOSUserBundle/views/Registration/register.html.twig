@@ -1,0 +1,12 @@
+
+
+
+{% extends "::base.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+
+                {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+                {% include "@FttFrontOffice/Front/sponsor.html.twig" %}
+
+{% endblock %}

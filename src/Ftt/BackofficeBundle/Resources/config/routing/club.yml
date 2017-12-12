@@ -1,0 +1,34 @@
+club:
+    path:     /
+    defaults: { _controller: "FttBackofficeBundle:Club:index" }
+
+club_show:
+    path:     /{id}/show
+    defaults: { _controller: "FttBackofficeBundle:Club:show" }
+
+club_new:
+    path:     /new
+    defaults: { _controller: "FttBackofficeBundle:Club:new" }
+
+club_create:
+    path:     /create
+    defaults: { _controller: "FttBackofficeBundle:Club:create" }
+    methods:  POST
+
+club_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FttBackofficeBundle:Club:edit" }
+
+club_update:
+    path:     /{id}/update
+    defaults: { _controller: "FttBackofficeBundle:Club:update" }
+    methods:  [POST, PUT]
+club_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FttBackofficeBundle:Club:delete" }
+    methods:  [POST, DELETE]
+    
+club_delete2:
+    path:     /delete
+    defaults: { _controller: "FttBackofficeBundle:Club:delete2" }
+   

@@ -1,0 +1,47 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+        <script type="text/javascript"
+        src="https://www.simplify.com/commerce/simplify.pay.js"></script>
+    <h1><center>Parier</center></h1>
+
+    <table class="table">
+        <tbody>
+           
+            <tr>
+                <th>Typematch</th>
+                <td>{{ matchs.typeMatch }}</td>
+            </tr>
+            <tr>
+                <th>Tournoi</th>
+                <td>{{ matchs.tournoi }}</td>
+            </tr>
+             <tr>
+                <th>Joueur1</th>
+                <td>{{ matchs.joueur1.getNomJoueur() }} 
+            </tr>
+            <tr>
+                <th>Joueur2</th>
+                <td>{{  matchs.joueur2.getNomJoueur() }}
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ matchs.date|date('Y-m-d') }}</td>
+            </tr><br>
+      
+        </tbody>
+    </table><br>
+    <center><h4>   Parier sur: {{ matchs.joueur1.getNomJoueur() }} <INPUT type= "radio" name="tarif" value="j1">   {{ matchs.joueur2.getNomJoueur() }} <INPUT type= "radio" name="tarif" value="j1"></h4></center>
+            <center> <button type="button" class="btn btn-primary btn-xs" 
+                     data-sc-key="sbpb_NWMyOTQ3MzMtNjA0Yy00NzFmLTg5MWUtYzcxM2M0MzQ4NzEx" 
+                     data-name="Payment" 
+                     data-description="Tennis" 
+                     data-reference="99999" 
+                     data-amount="800"
+                     data-color="#191970">
+        Parier
+                </button><br>
+             
+            </center>
+    
+   
+{% endblock %}

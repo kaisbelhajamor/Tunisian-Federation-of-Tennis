@@ -1,0 +1,35 @@
+matchs:
+    path:     /
+    defaults: { _controller: "FttBackofficeBundle:Matchs:index" }
+
+matchs_show:
+    path:     /{id}/show
+    defaults: { _controller: "FttBackofficeBundle:Matchs:show" }
+
+matchs_new:
+    path:     /new
+    defaults: { _controller: "FttBackofficeBundle:Matchs:new" }
+
+matchs_create:
+    path:     /create
+    defaults: { _controller: "FttBackofficeBundle:Matchs:create" }
+    methods:  POST
+
+matchs_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FttBackofficeBundle:Matchs:edit" }
+
+matchs_update:
+    path:     /{id}/update
+    defaults: { _controller: "FttBackofficeBundle:Matchs:update" }
+    methods:  [POST, PUT]
+
+matchs_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FttBackofficeBundle:Matchs:delete" }
+    methods:  [POST, DELETE]
+    
+matchs_delete2:
+    path:     /delete
+    defaults: { _controller: "FttBackofficeBundle:Matchs:delete2" }
+  

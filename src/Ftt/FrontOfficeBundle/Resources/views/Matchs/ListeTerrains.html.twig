@@ -1,0 +1,51 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <center>
+    <div class="general general-results players">  
+       
+        <div class="top-score-title right-score col-md-9">
+            <div class="top-score-title player-vs">
+
+                <div class="tabs standard single-pl">
+
+                    <div class="tab-content single-match">
+                        <div id="tab1" class="tab active">
+
+                            <h3 class="tab-match-title">Liste des Terrains </h3>
+
+
+                            {% for entity in entities %}
+                                <div id="tab1111" class="tab active">
+                                    <table class="match-tbs table table-bordered hover">
+                                        <tbody>
+                                            <tr >
+                                                <td class="match-tbs-title" colspan="7">{{ entity.nomTerrain }}</td></tr>
+
+                                            <tr class="match-sets">
+                                                <td class="fpt">Adresse</td><td class="fpt">Capacité</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fpt">{{ entity.adresseTerrain }}</td><td class="fpt">{{ entity.capacite }}</td>
+
+                                            </tr>    
+
+                                        </tbody>
+                                         </table>
+                                    <iframe
+                                        width="600"
+                                        height="450"
+                                        frameborder="0" style="border:0"
+                                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyASsmCtLKYuThBXUSk7DSv01sMst58kUwI 
+                                        &q={{ entity.nomTerrain }}" allowfullscreen>
+                                    </iframe>
+                                </div>
+                                <br><br>
+                            {% endfor %}    
+                        </div> </div> </div> </div> </div>
+
+    </div>
+
+</center>
+{% endblock %}
+
+

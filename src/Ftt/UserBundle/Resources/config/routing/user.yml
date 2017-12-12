@@ -1,0 +1,40 @@
+user:
+    path:     /
+    defaults: { _controller: "FttUserBundle:User:index" }
+
+user_show:
+    path:     /{id}/show
+    defaults: { _controller: "FttUserBundle:User:show" }
+
+user_new:
+    path:     /new
+    defaults: { _controller: "FttUserBundle:User:new" }
+
+user_create:
+    path:     /create
+    defaults: { _controller: "FttUserBundle:User:create" }
+    methods:  POST
+
+user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FttUserBundle:User:edit" }
+
+user_update:
+    path:     /{id}/update
+    defaults: { _controller: "FttUserBundle:User:update" }
+    methods:  [POST, PUT]
+
+user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FttUserBundle:User:delete" }
+
+user_block:
+    path:     /{id}/block
+    defaults: { _controller: "FttUserBundle:User:blockUser" }
+
+user_activate:
+    path:     /{id}/activate
+    defaults: { _controller: "FttUserBundle:User:activateUser" }
+user_search:
+    path:     /search
+    defaults: { _controller: "FttUserBundle:User:Search" }

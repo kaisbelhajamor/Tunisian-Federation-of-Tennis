@@ -1,0 +1,26 @@
+ftt_backoffice_newsletter_list_mail:
+    path:     /list
+    defaults: { _controller: FttNewsletterBundle:Newsletter:list }
+
+ftt_backoffice_newsletter_delete_mail:
+    path:     /delete/{id}
+    defaults: { _controller: FttNewsletterBundle:Newsletter:delete }
+
+ftt_backoffice_newsletter_add_newsletter:
+    path:     /add
+    defaults: { _controller: FttNewsletterBundle:Newsletter:addNewsletterMail }
+
+
+ftt_backoffice_newsletter_show_newsletter_content:
+    path:     /showNewsContent/{id}
+    defaults: { _controller: FttNewsletterBundle:Newsletter:showContentNewsletter }
+
+ftt_backoffice_newsletter_list_newsletter_content:
+    path:     /listNewsContent
+    defaults: { _controller: FttNewsletterBundle:Newsletter:listContentNewsletter }
+
+ftt_backoffice_newsletter_delete_newsletter_content:
+    path:     /deleteNewsContent/{id}
+    defaults: { _controller: FttNewsletterBundle:Newsletter:deleteContentNewsletter }
+
+

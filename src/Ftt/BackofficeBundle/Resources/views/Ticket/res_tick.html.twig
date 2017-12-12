@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <h1>Affich T</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="success">Match</th>
+                <th class="success">Prix</th>
+                <th class="success">Date</th>             
+                <th class="success">Nombre de place disponibles</th>
+                 <th><center>Réservation Ticket</center></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.matchs }}</td>
+                <td>{{ entity.prix }}</td>
+                <td>{% if entity.date %}{{ entity.date|date('d-m-y') }}{% endif %}</td>
+                <td>{{ entity.nbplacdisp }}</td>
+                <td>
+               
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+       
+    {% endblock %}
+{# empty Twig template #}

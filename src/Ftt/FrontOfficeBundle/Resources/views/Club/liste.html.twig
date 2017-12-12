@@ -1,0 +1,52 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <section id="single_news" class="container secondary-page">
+        <div class="general general-results">
+            <div class="top-score-title col-md-9">
+                <h3 class="tab-match-title secondary-page club-list">Liste des clubs</h3>
+
+                    <table class="match-tbs desc_news">
+                        <tbody>
+                        <tr>
+                            <td class="match-tbs-title" colspan="7">Club affecté</td>
+                        </tr>
+                        <tr class="match-sets">
+                            <td class="fpt">Nom de club</td>
+                            <td class="fpt">Adresse</td>
+                            <td class="fpt">Logo</td>
+                        </tr>
+                        {% for entity in entities %}
+                            <tr class="match-sets">
+                                <td class="fpt">{{ entity.nom }}</td>
+                                <td class="fpt">{{ entity.adresse }}</td>
+                                <td class="fpt">    {% if entity.path is not empty %}
+
+                                        <center><img
+                                                    class="profile-user-img img-responsive img-circle logoclub"
+                                                    src="{{ asset(entity.getWebPath()) }}"
+                                                    alt="User profile picture"></center>
+
+                                    {% endif %}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <center>
+                        <div class="navigation">{{ knp_pagination_render(entities) }} </div>
+                    </center>
+
+
+            </div><!--Close Top Match-->
+
+            {% include '@FttGestionActualite/FrontOffice/lastnews.html.twig' %}
+        </div>
+
+    </section>
+
+
+
+
+
+    {{ include('@FttFrontOffice/Front/sponsor.html.twig') }}
+{% endblock %}

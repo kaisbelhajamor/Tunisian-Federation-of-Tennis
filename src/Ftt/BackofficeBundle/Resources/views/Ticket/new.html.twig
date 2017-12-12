@@ -1,0 +1,57 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block body -%}
+   <h1>Ajout d'un ticket</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('ticket_affich') }}">
+            Retour à la liste
+        </a>
+    </li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+  
+    <center>  <h1>Ajouter Ticket</h1></center>
+<br>
+   {{ form_start(form) }}
+   <div class="panel panel-default">
+       <label for="inputEmail3" class="col-sm-2 control-label"> Prix </label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.prix,
+                        { 'id': 'inputEmail3',  'attr': { 'class' : 'form-control' }} ) }}
+                    </div>
+ <label for="inputEmail3" class="col-sm-2 control-label">Date du match </label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.date,
+                        { 'id': '',  'attr': { 'class' : 'form-group' }} ) }}
+                    </div>  
+ <label for="inputEmail3" class="col-sm-2 control-label">Match </label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.matchs,
+                        { 'id': 'inputEmail3',  'attr': { 'class' : 'form-group' }} ) }}
+                    </div>
+    <label for="inputEmail3" class="col-sm-2 control-label">Nombre de tickets </label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.nbtickets,
+                        { 'id': 'inputEmail3',  'attr': { 'class' : 'form-control' }} ) }}
+                    </div>
+                       <div class="col-sm-10">
+                 <center>        {{ form_widget(form.submit,
+                       { 'id': '',  'attr': { 'class' : 'btn btn-success' }} ) }}</center>
+                    </div>  
+                 
+   </div>        
+                        
+   {{ form_end(form) }}
+ 
+        <a href="{{ path('ticket_affich') }}" class="btn btn-primary" role="button">
+            Back to the list
+        </a>
+  
+{% endblock %}

@@ -1,0 +1,36 @@
+ftt_gestion_actualite:
+    resource: "@FttGestionActualiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ftt_newsletter:
+    resource: "@FttNewsletterBundle/Resources/config/routing.yml"
+    prefix:   /admin/newsletter
+
+ftt_front_newsletter_show_newsletter_content:
+    path:     /showNewsContent/{id}
+    defaults: { _controller: FttNewsletterBundle:Newsletter:showContentNewsletter }
+
+ftt_user:
+    resource: "@FttUserBundle/Resources/config/routing.yml"
+    prefix:   /admin/user
+
+ftt_front_office:
+    resource: "@FttFrontOfficeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ftt_backoffice:
+    resource: "@FttBackofficeBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }

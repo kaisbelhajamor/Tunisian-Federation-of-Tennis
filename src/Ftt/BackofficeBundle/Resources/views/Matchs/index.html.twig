@@ -1,0 +1,57 @@
+{% extends "FttBackofficeBundle::accueil_admin.html.twig" %}
+
+{% block content %}
+
+    <div class="box">
+        <div class="box-header with-border"><h3 class="box-title">Liste des Matchs </h3></div>
+        <div class="box-body">
+            <table class="table table-bordered table-hover dataTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Typematch</th>
+                        <th>Tournoi</th>
+                        <th>Date</th>
+                        <th>Heure</th>
+                        <th>Resultat</th>
+                         <th>Joueur 1</th>
+                          <th>Joueur 2</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+
+                        <tr>
+
+                            <td><a href="{{ path('matchs_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.typeMatch }}</td>
+                            <td>{{ entity.tournoi }}</td>
+                            <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
+                            <td>{{ entity.heure|date('H:i:s') }}</td>
+                            <td>{{ entity.resultat }}</td>
+                            <td>{{ entity.joueur1.nomJoueur }}</td>
+                            <td>{{ entity.joueur2.nomJoueur }}</td>
+                            <td>
+
+
+                                <a class="btn btn-danger" href="{{ path('matchs_delete2', { 'id': entity.id }) }}">Supprimer</a>
+                                <a class="btn btn-info" href="{{ path('matchs_edit', { 'id': entity.id }) }}">Modifier</a>
+
+
+                            </td>
+
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>        </p>
+
+            <a href="{{ path('matchs_new') }}" class="btn btn-info" role="boutton" > Ajouter un Match </a>
+          
+        </div></div>
+
+
+
+{% endblock %}

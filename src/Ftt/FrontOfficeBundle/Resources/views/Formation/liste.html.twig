@@ -1,0 +1,88 @@
+{% extends "::base.html.twig" %}
+            {% block body %}
+                <section id="single_news" class="container secondary-page">
+                    <div class="general general-results">
+                        <div class="top-score-title col-md-9">
+                            <h3 class="tab-match-title secondary-page club-list">Formations des Joueurs</h3>
+                            <table class="table table-bordered table-hover dataTable">
+                                <thead>
+                                <tr>
+
+                                    <th class="bg-info">Lieux</th>
+                                    <th class="bg-info">Dateouverture</th>
+                                    <th class="bg-info">Datecloture</th>
+                                    <th class="bg-info">Cible</th>
+                                    <th class="bg-info">Inscription</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for entity in entities2 %}
+                                    <tr>
+
+                                        <td>{{ entity.lieux }}</td>
+                                        <td>{% if entity.dateOuverture %}{{ entity.dateOuverture|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                        <td>{% if entity.dateCloture %}{{ entity.dateCloture|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                        <td>{{ entity.cible }}</td>
+                                        <td>
+
+                                            <a class="btn btn-info"
+                                               href="{{ path('inscrire_formation', { 'id': entity.id }) }}">s'inscrire</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <div class="navigation">{{ knp_pagination_render(entities2) }}</div>
+
+
+
+
+
+
+
+
+                                <h3 class="tab-match-title secondary-page ">Formations des Arbitres</h3>
+                                <table class="table table-bordered table-hover dataTable">
+                                    <thead>
+                                    <tr>
+
+                                        <th class="bg-info">Lieux</th>
+                                        <th class="bg-info">Dateouverture</th>
+                                        <th class="bg-info">Datecloture</th>
+                                        <th class="bg-info">Cible</th>
+                                        <th class="bg-info">Inscription</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for entity in entities %}
+                                        <tr>
+
+                                            <td>{{ entity.lieux }}</td>
+                                            <td>{% if entity.dateOuverture %}{{ entity.dateOuverture|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                            <td>{% if entity.dateCloture %}{{ entity.dateCloture|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                            <td>{{ entity.cible }}</td>
+                                            <td>
+
+                                                <a class="btn btn-info"
+                                                   href="{{ path('inscrire_formation', { 'id': entity.id }) }}">s'inscrire</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="navigation">{{ knp_pagination_render(entities) }}</div>
+
+
+                            </div><!--Close Top Match-->
+
+                            {% include '@FttGestionActualite/FrontOffice/lastnews.html.twig' %}
+                        </div>
+
+                </section>
+
+
+
+
+
+                {{ include('@FttFrontOffice/Front/sponsor.html.twig') }}
+            {% endblock %}

@@ -1,0 +1,34 @@
+paris_affich:
+    path:     /
+    defaults: { _controller: "FttBackofficeBundle:Paris:index" }
+
+paris_show:
+    path:     /{id}/show
+    defaults: { _controller: "FttBackofficeBundle:Paris:show" }
+
+paris_new:
+    path:     /new
+    defaults: { _controller: "FttBackofficeBundle:Paris:new" }
+
+paris_create:
+    path:     /create
+    defaults: { _controller: "FttBackofficeBundle:Paris:create" }
+    methods:  POST
+paris_del:
+    path:     /{id}/del
+    defaults: { _controller: "FttBackofficeBundle:Paris:deleteP" }    
+    
+
+paris_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FttBackofficeBundle:Paris:edit" }
+
+paris_update:
+    path:     /{id}/update
+    defaults: { _controller: "FttBackofficeBundle:Paris:update" }
+    methods:  [POST, PUT]
+
+paris_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FttBackofficeBundle:Paris:delete" }
+    methods:  [POST, DELETE]

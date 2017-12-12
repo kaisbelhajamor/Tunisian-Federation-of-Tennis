@@ -1,0 +1,19 @@
+afficher_joueur:
+    path:     /afficherJoueur
+    defaults: { _controller: FttBackofficeBundle:GestionJoueur:afficherJoueur }    
+    
+ajout_joueur:
+    path:     /ajouterjoueur
+    defaults: { _controller: FttBackofficeBundle:GestionJoueur:ajouterJoueur }
+ 
+modifier_joueur:
+    path:     /modifierjoueur
+    defaults: { _controller: FttBackofficeBundle:GestionJoueur:modifierJoueur }
+    
+supprimer_joueur:
+    path:     /supprimerjoueur
+    defaults: { _controller: FttBackofficeBundle:GestionJoueur:supprimerJoueur } 
+    
+joueur_list:
+    path:     /liste
+    defaults: { _controller: "FttBackofficeBundle:GestionJoueur:liste" }    
